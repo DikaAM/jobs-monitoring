@@ -2,7 +2,7 @@
   "name": "jobs-api-new",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "./functions/server.js",
   "scripts": {
     "build": "netlify functions:build --src functions",
     "dev": "netlify dev"
