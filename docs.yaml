@@ -1,0 +1,433 @@
+openapi: 3.0.0
+info:
+  title: Jobs-API
+  contact: {}
+  version: "1.0"
+servers:
+  - url: "http://localhost:3000/api/v1"
+    description: development stage
+    variables: {}
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Authentication
+      summary: Register
+      operationId: Register
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/RegisterRequest"
+                - example:
+                    name: Adi Yusuf
+                    email: Adi@gmail.com
+                    password: bebaskanlah
+            example:
+              name: Adi Yusuf
+              email: Adi@gmail.com
+              password: bebaskanlah
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/LoginRequest"
+                - example:
+                    email: Adi@gmail.com
+                    password: bebaskanlah
+            example:
+              email: Adi@gmail.com
+              password: bebaskanlah
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /user:
+    get:
+      tags:
+        - Users
+      summary: Get List User
+      operationId: GetListUser
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  "/user/{id}":
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+        - Users
+      summary: Get a User
+      operationId: GetaUser
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    patch:
+      tags:
+        - Users
+      summary: Update a User
+      operationId: UpdateaUser
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/UpdateaUserRequest"
+                - example:
+                    currentPassword: terserahlah
+                    password: bebaskanlah
+            example:
+              currentPassword: terserahlah
+              password: bebaskanlah
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - Users
+      summary: Delete a User
+      operationId: DeleteaUser
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /jobs:
+    post:
+      tags:
+        - Jobs
+      summary: Create a Job
+      operationId: CreateaJob
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/CreateaJobRequest"
+                - example:
+                    company: Sircon
+                    position: Project Analyst
+                    statusCode: "1"
+            example:
+              company: Sircon
+              position: Project Analyst
+              statusCode: "1"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    get:
+      tags:
+        - Jobs
+      summary: Get All Jobs
+      operationId: GetAllJobs
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  "/jobs/{id}":
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The job ID
+    get:
+      tags:
+        - Jobs
+      summary: Get a Job
+      operationId: GetaJob
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    patch:
+      tags:
+        - Jobs
+      summary: Update a Job
+      operationId: UpdateaJob
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/UpdateaJobRequest"
+                - example:
+                    statusCode: 2
+            example:
+              statusCode: 2
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - Jobs
+      summary: Delete a Job
+      operationId: DeleteaJob
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /status:
+    post:
+      tags:
+        - Status
+      summary: Create Status
+      operationId: CreateStatus
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/CreateStatusRequest"
+                - example:
+                    statusName: Lolos Dik
+                    statusCode: 3
+            example:
+              statusName: Lolos Dik
+              statusCode: 3
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    get:
+      tags:
+        - Status
+      summary: Get All Status
+      operationId: GetAllStatus
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  "/status/{id}":
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The status ID
+    patch:
+      tags:
+        - Status
+      summary: Update Status
+      operationId: UpdateStatus
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/UpdateStatusRequest"
+                - example:
+                    statusName: Lolos
+            example:
+              statusName: Lolos
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+components:
+  schemas:
+    RegisterRequest:
+      title: RegisterRequest
+      required:
+        - name
+        - email
+        - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: Adi Yusuf
+        email: Adi@gmail.com
+        password: bebaskanlah
+    LoginRequest:
+      title: LoginRequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: Adi@gmail.com
+        password: bebaskanlah
+    UpdateaUserRequest:
+      title: UpdateaUserRequest
+      required:
+        - currentPassword
+        - password
+      type: object
+      properties:
+        currentPassword:
+          type: string
+        password:
+          type: string
+      example:
+        currentPassword: terserahlah
+        password: bebaskanlah
+    CreateaJobRequest:
+      title: CreateaJobRequest
+      required:
+        - company
+        - position
+        - statusCode
+      type: object
+      properties:
+        company:
+          type: string
+        position:
+          type: string
+        statusCode:
+          type: string
+      example:
+        company: Sircon
+        position: Project Analyst
+        statusCode: "1"
+    UpdateaJobRequest:
+      title: UpdateaJobRequest
+      required:
+        - statusCode
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+      example:
+        statusCode: 2
+    CreateStatusRequest:
+      title: CreateStatusRequest
+      required:
+        - statusName
+        - statusCode
+      type: object
+      properties:
+        statusName:
+          type: string
+        statusCode:
+          type: integer
+          format: int32
+      example:
+        statusName: Lolos Dik
+        statusCode: 3
+    UpdateStatusRequest:
+      title: UpdateStatusRequest
+      required:
+        - statusName
+      type: object
+      properties:
+        statusName:
+          type: string
+      example:
+        statusName: Lolos
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+  - name: Authentication
+    description: ""
+  - name: Users
+    description: ""
+  - name: Jobs
+    description: ""
+  - name: Status
+    description: ""
