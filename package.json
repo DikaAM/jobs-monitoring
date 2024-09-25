@@ -4,13 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "build": "netlify functions:build --src functions",
+    "dev": "netlify dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@netlify/functions": "^2.8.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
@@ -24,7 +25,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.8.1",
     "mongoose": "^8.6.2",
+    "netlify-cli": "^17.36.2",
     "rate-limiter": "^0.2.0",
+    "serverless-http": "^3.2.0",
     "swagger-ui-express": "^5.0.1",
     "xss-clean": "^0.1.4",
     "yamljs": "^0.3.0"
